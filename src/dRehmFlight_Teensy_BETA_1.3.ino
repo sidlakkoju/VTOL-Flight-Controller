@@ -167,12 +167,12 @@ float MagScaleY = 1.0;
 float MagScaleZ = 1.0;
 
 //IMU calibration parameters - calibrate IMU using calculate_IMU_error() in the void setup() to get these values, then comment out calculate_IMU_error()
-float AccErrorX = 0.0;
-float AccErrorY = 0.0;
-float AccErrorZ = 0.0;
-float GyroErrorX = 0.0;
-float GyroErrorY= 0.0;
-float GyroErrorZ = 0.0;
+float AccErrorX = 0.07;
+float AccErrorY = -0.04;
+float AccErrorZ = -0.04;
+float GyroErrorX = -1.75;
+float GyroErrorY = 0.87;
+float GyroErrorZ = -0.06;
 
 //Controller parameters (take note of defaults before modifying!): 
 float i_limit = 25.0;     //Integrator saturation level, mostly for safety (default 25.0)
@@ -1309,7 +1309,7 @@ void armMotors() {
    *  function is used in the main loop. Ensures motors arm within the void setup() where there are some delays
    *  for other processes that sometimes prevent motors from arming.
    */
-  for (int i = 0; i <= 100; i++) {
+  for (int i = 0; i <= 50; i++) {
     commandMotors();
     delay(2);
   }
