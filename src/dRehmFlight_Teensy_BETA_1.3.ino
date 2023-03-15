@@ -468,10 +468,10 @@ void controlMixer() {
    */
    
   //Quad mixing - EXAMPLE
-  m1_command_scaled = thro_des - pitch_PID + roll_PID + yaw_PID; //Front Left
-  m2_command_scaled = thro_des - pitch_PID - roll_PID - yaw_PID; //Front Right
-  m3_command_scaled = thro_des + pitch_PID - roll_PID + yaw_PID; //Back Right
-  m4_command_scaled = thro_des + pitch_PID + roll_PID - yaw_PID; //Back Left
+  m3_command_scaled = thro_des - pitch_PID + roll_PID + yaw_PID; //Front Left
+  m4_command_scaled = thro_des - pitch_PID - roll_PID - yaw_PID; //Front Right
+  m2_command_scaled = thro_des + pitch_PID - roll_PID + yaw_PID; //Back Right
+  m1_command_scaled = thro_des + pitch_PID + roll_PID - yaw_PID; //Back Left
   m5_command_scaled = 0;
   m6_command_scaled = 0;
 
@@ -1309,7 +1309,7 @@ void armMotors() {
    *  function is used in the main loop. Ensures motors arm within the void setup() where there are some delays
    *  for other processes that sometimes prevent motors from arming.
    */
-  for (int i = 0; i <= 50; i++) {
+  for (int i = 0; i <= 100; i++) {
     commandMotors();
     delay(2);
   }
